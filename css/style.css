@@ -1,0 +1,114 @@
+@font-face {
+    font-family: 'HumanSans-Bold';
+    src: url('../fonts/HumanSans-Bold.otf');
+}
+
+body {
+    font-family: 'Nunito Sans', sans-serif;
+    margin: 0;
+    background-color: #4595a7;
+    overflow: hidden;
+}
+
+.logo-container {
+    display: flex;
+    background-color: #061E26;
+    align-items: center;
+    padding-left: 30px;
+}
+
+.logo-container img {
+    width: 58px;
+    display: inline-block;
+    transform: translateX(0) rotate(-45deg);
+    transition: transform 3s ease-in-out;
+}
+
+h1 {
+    font-family: HumanSans-Bold;
+    font-size: 4rem;
+    color: white;
+    display: inline-block;
+    padding-left: 30px;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 3s ease-in-out, transform 0.8s ease-in-out;
+}
+
+@keyframes logoAnimation {
+    0% {
+        transform: translateX(0) rotate(-45deg);
+    }
+    100% {
+        transform: translateX(calc(100% - 58px)) rotate(0deg);
+    }
+}
+
+@keyframes textAnimation {
+    0% {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.logo-container.active .logo {
+    animation: logoAnimation 1s ease-in-out forwards;
+}
+
+.logo-container.active h1 {
+    animation: textAnimation 1s ease-in-out forwards;
+}
+
+nav {
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+nav li {
+    list-style: none;
+    display: inline-block;
+    margin-right: 30px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+header nav li {
+    display: inline;
+    margin-right: 20px;
+}
+
+header nav a {
+    text-decoration: none;
+    color: white;
+    position: relative;
+}
+
+header nav a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: width 0.2s;
+}
+
+header nav a:hover::after {
+    width: 100%;
+}
